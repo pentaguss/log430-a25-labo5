@@ -114,8 +114,10 @@ def request_payment_link(order_id, total_amount, user_id):
 
     # TODO: Requête à POST /payments
     print("")
-    response_from_payment_service = {}
-
+    response_from_payment_service = requests.post('/payments-api/payments',
+      json=payment_transaction,
+      headers={'Content-Type': 'application/json'}
+    )
     if True: # if response.ok
         print(f"ID paiement: {payment_id}")
 
